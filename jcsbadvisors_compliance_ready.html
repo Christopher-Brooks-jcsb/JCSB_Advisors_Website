@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>JCSB Wealth Management | Retirement Plan Advisory for Business Owners</title>
+<link rel="icon" type="image/png" href="https://jcsbwealth.com/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #3E8E63;
+    --green-hover: #56B079;
+    --green-light: #9DDCA7;
+    --green-pale: #B7DCC9;
+    --green-subtle: #BFD4C8;
+    --blue-dark: #2F3E46;
+    --blue-mid: #517799;
+    --blue-muted: #7A8C99;
+    --blue-pale: #DAE6EA;
+    --orange: #F38D0C;
+    --white: #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--blue-dark);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(47,62,70,0.97);
+    backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 68px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-logo a { display:flex; align-items:center; }
+  .nav-logo img { height: 42px; width: auto; display:block; }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.72);
+    text-decoration: none; font-size: 14px; font-weight: 500;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: white; }
+  .nav-actions { display: flex; align-items: center; gap: 12px; }
+  .nav-phone {
+    display: flex; align-items: center; gap: 7px;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none; font-size: 14px; font-weight: 500;
+    padding: 8px 14px; border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: all .2s; white-space: nowrap;
+  }
+  .nav-phone:hover { color: white; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.06); }
+  .nav-cta {
+    background: var(--orange); color: white;
+    border: none; padding: 10px 22px; border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    transition: opacity .2s, transform .2s;
+    letter-spacing: 0.2px;
+  }
+  .nav-cta:hover { opacity: .9; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--blue-dark);
+    position: relative;
+    display: flex; align-items: center;
+    padding: 120px 5% 80px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 80% 50%, rgba(62,142,99,0.18) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 50% at 10% 80%, rgba(81,119,153,0.15) 0%, transparent 60%);
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: linear-gradient(var(--green) 1px, transparent 1px),
+      linear-gradient(90deg, var(--green) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(62,142,99,0.15);
+    border: 1px solid rgba(62,142,99,0.35);
+    border-radius: 100px;
+    padding: 6px 16px; margin-bottom: 28px;
+    font-size: 12px; font-weight: 600; color: var(--green-light);
+    letter-spacing: 1.2px; text-transform: uppercase;
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--green-light); border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 5vw, 62px);
+    font-weight: 700; line-height: 1.08;
+    color: white; margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+  .hero h1 em { font-style: italic; color: var(--green-light); }
+  .hero-sub {
+    font-size: 18px; line-height: 1.65;
+    color: rgba(255,255,255,0.65);
+    max-width: 540px; margin-bottom: 44px;
+    font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--green); color: white;
+    padding: 15px 30px; border-radius: 5px;
+    font-size: 15px; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background .2s, transform .2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--green-hover); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: white;
+    padding: 15px 30px; border-radius: 5px;
+    font-size: 15px; font-weight: 500;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: border-color .2s, background .2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.06); }
+  .hero-trust {
+    display: flex; gap: 32px; margin-top: 52px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .trust-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; color: white; font-weight: 700;
+  }
+  .trust-num span { color: var(--green-light); }
+  .trust-label { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+
+  /* Hero Card */
+  .hero-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 36px;
+    backdrop-filter: blur(12px);
+    animation: floatCard 6s ease-in-out infinite;
+  }
+  @keyframes floatCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  .card-label {
+    font-size: 11px; font-weight: 600;
+    color: var(--green-light); letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 20px;
+  }
+  .card-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .card-row:last-child { border-bottom: none; }
+  .card-item-name { font-size: 14px; color: rgba(255,255,255,0.7); }
+  .card-item-val { font-size: 14px; font-weight: 600; color: white; }
+  .card-item-val.green { color: var(--green-light); }
+  .card-item-val.orange { color: var(--orange); }
+  .card-footer {
+    margin-top: 24px; padding: 16px;
+    background: rgba(62,142,99,0.15);
+    border-radius: 8px;
+    border: 1px solid rgba(62,142,99,0.25);
+    text-align: center;
+  }
+  .card-footer-title { font-size: 13px; color: var(--green-light); font-weight: 600; }
+  .card-footer-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px; color: white; font-weight: 700;
+    margin-top: 4px;
+  }
+  .card-footer-sub { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+
+  /* ── SECTION SHARED ── */
+  .section-tag {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--green); margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    color: var(--blue-dark); line-height: 1.15; font-weight: 700;
+  }
+  .section-sub {
+    font-size: 17px; color: var(--blue-muted);
+    line-height: 1.65; margin-top: 16px; font-weight: 300;
+  }
+  .section-center { text-align: center; max-width: 640px; margin: 0 auto 60px; }
+
+  /* ── CAMPAIGN TABS ── */
+  .campaigns { background: var(--white); padding: 100px 5%; }
+  .tabs {
+    display: flex; gap: 0; max-width: 560px; margin: 0 auto 56px;
+    border-radius: 8px; overflow: hidden; border: 1px solid var(--blue-pale);
+  }
+  .tab-btn {
+    flex: 1; padding: 16px 24px;
+    background: var(--white); border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 600;
+    color: var(--blue-muted); cursor: pointer;
+    transition: all .25s;
+    border-right: 1px solid var(--blue-pale);
+  }
+  .tab-btn:last-child { border-right: none; }
+  .tab-btn.active { background: var(--blue-dark); color: white; }
+  .tab-btn .tab-icon { display: block; font-size: 20px; margin-bottom: 4px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+
+  .panel-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 700;
+    color: var(--blue-dark); margin-bottom: 16px; line-height: 1.2;
+  }
+  .panel-text p {
+    font-size: 16px; line-height: 1.7;
+    color: var(--blue-muted); margin-bottom: 20px; font-weight: 300;
+  }
+  .pain-point {
+    background: #FFF8F0;
+    border-left: 3px solid var(--orange);
+    padding: 14px 18px; border-radius: 0 6px 6px 0;
+    margin-bottom: 28px;
+    font-size: 15px; line-height: 1.55;
+    color: var(--blue-dark);
+  }
+  .pain-label { font-size: 11px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .opportunity-point {
+    background: #F0FFF8;
+    border-left: 3px solid var(--green);
+    padding: 14px 18px; border-radius: 0 6px 6px 0;
+    margin-bottom: 28px;
+    font-size: 15px; line-height: 1.55;
+    color: var(--blue-dark);
+  }
+  .opp-label { font-size: 11px; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+
+  .feature-list { list-style: none; margin-bottom: 36px; }
+  .feature-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 0; font-size: 15px; color: var(--blue-dark);
+    border-bottom: 1px solid var(--blue-pale);
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .check { color: var(--green); font-size: 18px; margin-top: 1px; flex-shrink: 0; }
+
+  .panel-visual { position: relative; }
+  .visual-card {
+    background: var(--blue-dark);
+    border-radius: 16px; padding: 32px;
+    position: relative; overflow: hidden;
+  }
+  .visual-card::after {
+    content: '';
+    position: absolute; top: -40px; right: -40px;
+    width: 140px; height: 140px;
+    background: radial-gradient(circle, rgba(62,142,99,0.3), transparent 70%);
+    border-radius: 50%;
+  }
+  .visual-card-title {
+    font-size: 12px; font-weight: 600; color: var(--green-light);
+    letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px;
+  }
+  .metric-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .metric-row:last-child { border-bottom: none; }
+  .metric-name { font-size: 13px; color: rgba(255,255,255,0.6); }
+  .metric-val { font-size: 14px; font-weight: 600; color: white; }
+  .metric-val.good { color: var(--green-light); }
+  .metric-val.warn { color: var(--orange); }
+  .metric-bar-wrap { margin-top: 20px; }
+  .metric-bar-label { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; }
+  .metric-bar-label span:first-child { color: rgba(255,255,255,0.5); }
+  .metric-bar-label span:last-child { color: var(--green-light); font-weight: 600; }
+  .bar-track { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; }
+  .bar-fill { height: 100%; background: linear-gradient(90deg, var(--green), var(--green-light)); border-radius: 3px; transition: width 1s ease; }
+
+  .credit-card {
+    background: linear-gradient(135deg, #1a3a28, #2a5040);
+    border: 1px solid rgba(62,142,99,0.3);
+    border-radius: 12px; padding: 24px; margin-bottom: 16px;
+  }
+  .credit-title { font-size: 12px; color: var(--green-light); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+  .credit-amount { font-family: 'Playfair Display', serif; font-size: 36px; color: white; font-weight: 700; }
+  .credit-amount sup { font-size: 18px; vertical-align: super; }
+  .credit-sub { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 4px; font-style: italic; }
+  .credit-rows { margin-top: 16px; }
+  .credit-row { display: flex; justify-content: space-between; font-size: 13px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .credit-row-label { color: rgba(255,255,255,0.55); }
+  .credit-row-val { color: white; font-weight: 600; }
+
+  /* ── PHILOSOPHY ── */
+  .philosophy { background: var(--blue-pale); padding: 100px 5%; }
+  .phi-inner { max-width: 1200px; margin: 0 auto; }
+  .phi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .phi-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 44px); font-weight: 700;
+    color: var(--blue-dark); line-height: 1.15; margin-bottom: 24px;
+  }
+  .phi-left h2 em { font-style: italic; color: var(--green); }
+  .phi-left p { font-size: 17px; color: var(--blue-muted); line-height: 1.7; margin-bottom: 20px; font-weight: 300; }
+  .phi-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-style: italic;
+    color: var(--blue-dark); line-height: 1.6;
+    border-left: 3px solid var(--green);
+    padding-left: 24px; margin: 32px 0;
+  }
+  .phi-pillar {
+    background: white; border-radius: 12px; padding: 28px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(62,142,99,0.15);
+    transition: box-shadow .2s, transform .2s;
+  }
+  .phi-pillar:hover { box-shadow: 0 8px 32px rgba(62,142,99,0.12); transform: translateX(4px); }
+  .pillar-num { font-size: 11px; font-weight: 700; color: var(--green); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+  .pillar-title { font-size: 17px; font-weight: 600; color: var(--blue-dark); margin-bottom: 8px; }
+  .pillar-body { font-size: 14px; color: var(--blue-muted); line-height: 1.6; font-weight: 300; }
+
+  /* ── COMPARISON TABLE ── */
+  .comparison { background: var(--white); padding: 100px 5%; }
+  .comparison-inner { max-width: 900px; margin: 0 auto; }
+  .comp-table { width: 100%; border-collapse: collapse; margin-top: 48px; }
+  .comp-table th {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    padding: 14px 20px; text-align: left;
+  }
+  .comp-table th:first-child { color: var(--blue-muted); width: 35%; }
+  .comp-table th.col-jcsb { background: rgba(62,142,99,0.08); color: var(--green); border-radius: 8px 8px 0 0; }
+  .comp-table th.col-other { color: var(--blue-muted); }
+  .comp-table td {
+    font-size: 14px; padding: 14px 20px;
+    border-bottom: 1px solid var(--blue-pale);
+    color: var(--blue-dark); font-weight: 300;
+  }
+  .comp-table td.col-jcsb { background: rgba(62,142,99,0.05); font-weight: 500; }
+  .comp-check { color: var(--green); font-weight: 700; font-size: 16px; }
+  .comp-dash { color: #c0c8cc; font-weight: 700; font-size: 16px; }
+  .comp-table tr:last-child td { border-bottom: none; }
+
+  /* ── ADVISOR ── */
+  .advisor { background: var(--white); padding: 100px 5%; }
+  .advisor-inner { max-width: 1100px; margin: 0 auto; }
+  .advisor-grid { display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: start; }
+  .advisor-photo {
+    width: 100%; aspect-ratio: 3/4;
+    background: linear-gradient(145deg, var(--green-subtle), var(--blue-pale));
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .advisor-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
+  .photo-placeholder { text-align: center; color: var(--blue-muted); }
+  .photo-icon { font-size: 72px; display: block; margin-bottom: 8px; }
+  .advisor-badge {
+    position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%);
+    background: var(--green); color: white;
+    padding: 10px 24px; border-radius: 100px;
+    font-size: 13px; font-weight: 700;
+    white-space: nowrap; box-shadow: 0 4px 16px rgba(62,142,99,0.3);
+  }
+  .advisor-photo-wrap { position: relative; padding-bottom: 20px; }
+  .advisor-title-line {
+    font-size: 12px; font-weight: 600; color: var(--blue-mid);
+    text-transform: uppercase; letter-spacing: 1.2px;
+    margin-bottom: 24px; margin-top: 6px;
+  }
+  .advisor-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 700; color: var(--blue-dark);
+  }
+  .advisor-info p { font-size: 16px; line-height: 1.7; color: var(--blue-muted); margin-bottom: 18px; font-weight: 300; }
+  .credential-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0; }
+  .chip {
+    background: var(--blue-pale); color: var(--blue-dark);
+    border-radius: 100px; padding: 7px 18px;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .chip.green { background: rgba(62,142,99,0.12); color: var(--green); }
+  .advisor-cta-group { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+  .btn-orange {
+    background: var(--orange); color: white;
+    padding: 14px 28px; border-radius: 5px;
+    font-size: 15px; font-weight: 600;
+    text-decoration: none;
+    transition: opacity .2s, transform .2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-orange:hover { opacity: .88; transform: translateY(-2px); }
+
+  /* ── PROCESS ── */
+  .process {
+    background: var(--blue-dark); padding: 100px 5%;
+    position: relative; overflow: hidden;
+  }
+  .process::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 50% 60% at 90% 20%, rgba(62,142,99,0.12) 0%, transparent 60%);
+  }
+  .process-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+  .process .section-tag { color: var(--green-light); }
+  .process .section-title { color: white; }
+  .process .section-sub { color: rgba(255,255,255,0.55); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 60px; }
+  .step {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 14px; padding: 32px 24px;
+    backdrop-filter: blur(8px);
+    transition: border-color .2s, background .2s;
+  }
+  .step:hover { background: rgba(255,255,255,0.07); border-color: rgba(62,142,99,0.35); }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px; font-weight: 700;
+    color: rgba(255,255,255,0.08);
+    line-height: 1; margin-bottom: 16px;
+  }
+  .step-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+  .step h4 { font-size: 17px; font-weight: 600; color: white; margin-bottom: 10px; }
+  .step p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.65; font-weight: 300; }
+
+  /* ── FINAL CTA ── */
+  .final-cta { padding: 80px 5%; background: var(--blue-pale); }
+  .cta-outer {
+    max-width: 1060px; margin: 0 auto;
+    background: linear-gradient(135deg, var(--blue-dark) 0%, #1a2d36 100%);
+    border-radius: 24px; overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+  }
+  .cta-top {
+    padding: 56px 64px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .cta-top::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 85% 50%, rgba(62,142,99,0.12) 0%, transparent 60%);
+  }
+  .cta-top .section-tag { color: var(--green-light); position: relative; z-index: 1; }
+  .cta-top h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3vw, 40px); font-weight: 700;
+    color: white; line-height: 1.2; margin-bottom: 16px;
+    position: relative; z-index: 1;
+  }
+  .cta-top h2 em { font-style: italic; color: var(--green-light); }
+  .cta-top p {
+    font-size: 17px; color: rgba(255,255,255,0.55);
+    font-weight: 300; max-width: 560px;
+    position: relative; z-index: 1;
+  }
+  .cta-options {
+    display: grid; grid-template-columns: 1fr auto 1fr auto 1fr;
+    padding: 40px 64px;
+    gap: 0;
+  }
+  .cta-option { padding: 8px 20px; }
+  .cta-option h4 { font-size: 17px; font-weight: 600; color: white; margin-bottom: 8px; margin-top: 12px; }
+  .cta-option p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.6; font-weight: 300; }
+  .cta-option-badge {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 100px;
+  }
+  .badge-primary { background: rgba(243,141,12,0.2); color: var(--orange); border: 1px solid rgba(243,141,12,0.3); }
+  .badge-urgent { background: rgba(62,142,99,0.2); color: var(--green-light); border: 1px solid rgba(62,142,99,0.3); }
+  .badge-easy { background: var(--blue-pale); color: var(--blue-dark); }
+  .cta-option-icon { font-size: 32px; display: block; margin: 16px 0 0; }
+  .cta-divider { width: 1px; background: rgba(255,255,255,0.08); margin: 8px 0; }
+  .btn-phone {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700; color: white;
+    text-decoration: none; margin-top: 14px;
+    transition: color .2s;
+  }
+  .btn-phone:hover { color: var(--green-light); }
+  .btn-phone-sub { font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 4px; }
+  .btn-green-outline {
+    display: inline-block;
+    color: var(--green-light);
+    border: 1px solid rgba(62,142,99,0.5);
+    border-radius: 5px; padding: 12px 24px;
+    font-size: 14px; font-weight: 600;
+    text-decoration: none; margin-top: 14px;
+    transition: background .2s, border-color .2s;
+  }
+  .btn-green-outline:hover { background: rgba(62,142,99,0.15); border-color: var(--green-light); }
+  .booking-actions { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
+  .booking-actions a { white-space:nowrap; }
+  .btn-book { display:inline-flex; align-items:center; gap:7px; padding:12px 18px; border-radius:5px; font-size:14px; font-weight:700; text-decoration:none; transition:opacity .2s, transform .2s; }
+  .btn-book.inperson { background:var(--orange); color:white; }
+  .btn-book.zoom { background:rgba(255,255,255,0.08); color:var(--green-light); border:1px solid rgba(62,142,99,0.5); }
+  .btn-book:hover { opacity:.9; transform:translateY(-1px); }
+
+  /* Contact form */
+  .cta-form-panel {
+    background: rgba(255,255,255,0.04);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 48px 64px;
+    position: relative; z-index: 1;
+  }
+  .cta-form-panel h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 700; color: white; margin-bottom: 8px;
+  }
+  .form-sub { font-size: 15px; color: rgba(255,255,255,0.45); margin-bottom: 32px; font-weight: 300; }
+  .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px; padding: 12px 14px;
+    color: white; font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 300;
+    transition: border-color .2s, background .2s;
+  }
+  .form-group select option { background: var(--blue-dark); color: white; }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--green);
+    background: rgba(62,142,99,0.08);
+  }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
+  .form-submit-row {
+    grid-column: 1 / -1;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; margin-top: 4px; flex-wrap: wrap;
+  }
+  .form-privacy { font-size: 12px; color: rgba(255,255,255,0.3); }
+  .btn-form-submit {
+    background: var(--orange); color: white;
+    border: none; border-radius: 5px; padding: 14px 32px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 700;
+    cursor: pointer; transition: opacity .2s, transform .2s;
+    white-space: nowrap;
+  }
+  .btn-form-submit:hover { opacity: .88; transform: translateY(-1px); }
+  .form-success {
+    display: none; text-align: center; padding: 32px;
+    color: var(--green-light); font-size: 16px;
+  }
+  .form-success-icon { font-size: 40px; display: block; margin-bottom: 12px; }
+  .cta-note-bottom {
+    text-align: center; font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    padding: 0 64px 32px;
+    position: relative; z-index: 1;
+  }
+
+
+
+  /* ── SELF IDENTIFICATION / STORY CARDS ── */
+  .recognition-list { display: flex; flex-direction: column; gap: 10px; margin: 0 0 30px; max-width: 560px; }
+  .recognition-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: rgba(255,255,255,0.68); line-height: 1.55; font-weight: 300; }
+  .recognition-arrow { width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid rgba(157,220,167,0.42); color: var(--green-light); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:12px; margin-top:1px; }
+  .recognition-item strong { color: white; font-weight: 600; }
+  .hero-short-list { gap: 8px; margin-bottom: 34px; }
+  .hero-short-list .recognition-item { font-size: 16px; }
+
+  .self-card-intro { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 18px; font-weight: 300; }
+  .self-option { display:flex; align-items:flex-start; gap:12px; padding:13px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); margin-bottom:10px; background:rgba(255,255,255,0.02); text-decoration:none; transition:background .2s,border-color .2s,transform .2s; }
+  .self-option:hover { background:rgba(62,142,99,0.12); border-color:rgba(62,142,99,0.32); transform:translateX(2px); }
+  .self-dot { width:8px; height:8px; border-radius:50%; border:2px solid var(--green-light); margin-top:6px; flex-shrink:0; }
+  .self-option:hover .self-dot { background:var(--green-light); }
+  .self-option strong { display:block; color:white; font-size:13px; margin-bottom:3px; }
+  .self-option span { display:block; color:rgba(255,255,255,0.55); font-size:13px; line-height:1.45; }
+
+  .situations { background: var(--white); padding: 100px 5%; }
+  .situations-inner { max-width: 1120px; margin: 0 auto; }
+  .situation-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .situation-card { border:1px solid var(--blue-pale); border-radius:14px; overflow:hidden; background:white; transition:box-shadow .25s, transform .25s; }
+  .situation-card:hover { box-shadow:0 14px 42px rgba(47,62,70,0.10); transform:translateY(-4px); }
+  .situation-header { background:var(--blue-dark); padding:26px 26px 22px; position:relative; overflow:hidden; }
+  .situation-header::after { content:''; position:absolute; right:-35px; bottom:-35px; width:110px; height:110px; border-radius:50%; background:radial-gradient(circle, rgba(62,142,99,0.28), transparent 70%); }
+  .situation-who { font-size:11px; font-weight:700; color:var(--green-light); letter-spacing:1.4px; text-transform:uppercase; margin-bottom:10px; }
+  .situation-title { font-family:'Playfair Display',serif; color:rgba(255,255,255,0.90); font-style:italic; font-size:17px; line-height:1.45; }
+  .situation-body { padding:26px; }
+  .concept-box { background:var(--blue-pale); border-left:3px solid var(--blue-mid); border-radius:0 6px 6px 0; padding:13px 16px; margin-bottom:18px; font-size:13px; line-height:1.62; color:var(--blue-dark); }
+  .concept-label, .output-label { font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:5px; }
+  .concept-label { color:var(--blue-mid); }
+  .work-text { font-size:14px; color:var(--blue-muted); line-height:1.72; font-weight:300; margin-bottom:18px; }
+  .work-text strong { color:var(--blue-dark); font-weight:600; }
+  .output-box { background:rgba(62,142,99,0.08); border-left:3px solid var(--green); border-radius:0 7px 7px 0; padding:13px 16px; }
+  .output-label { color:var(--green); }
+  .output-text { font-size:13px; color:var(--blue-dark); line-height:1.55; }
+  .situation-disc { font-size:11px; color:var(--blue-muted); font-style:italic; margin-top:12px; line-height:1.5; }
+
+  .owner-bridge { background: var(--blue-pale); padding: 88px 5%; }
+  .owner-bridge-inner { max-width: 1040px; margin: 0 auto; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+  .bridge-card { background:white; border:1px solid rgba(62,142,99,0.16); border-radius:14px; padding:28px; }
+  .bridge-card h4 { font-size:17px; font-weight:600; color:var(--blue-dark); margin-bottom:10px; }
+  .bridge-card p { font-size:14px; color:var(--blue-muted); line-height:1.65; font-weight:300; }
+
+  .cta-clarity { display:grid; grid-template-columns:1fr 1fr; gap:0; padding:0 64px 40px; position:relative; z-index:1; }
+  .clarity-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09); padding:28px; }
+  .clarity-card:first-child { border-radius:14px 0 0 14px; }
+  .clarity-card:last-child { border-radius:0 14px 14px 0; border-left:none; }
+  .clarity-card h4 { color:white; font-size:17px; font-weight:600; margin-bottom:14px; }
+  .clarity-card ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .clarity-card li { font-size:14px; color:rgba(255,255,255,0.60); line-height:1.55; display:flex; gap:9px; align-items:flex-start; }
+  .clarity-card li::before { content:'✓'; color:var(--green-light); font-weight:700; flex-shrink:0; }
+  .clarity-card.not li::before { content:'—'; color:var(--orange); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #1a262c;
+    padding: 48px 5%;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.35); }
+  .footer-legal-links {
+    display: flex; gap: 24px; flex-wrap: wrap; justify-content: center;
+    padding: 16px 0; margin-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-legal-links a {
+    font-size: 12px; color: rgba(255,255,255,0.4);
+    text-decoration: none; transition: color .2s;
+  }
+  .footer-legal-links a:hover { color: var(--green-light); }
+  .footer-disc { font-size: 11px; color: rgba(255,255,255,0.25); max-width: 900px; line-height: 1.6; margin: 0 auto; text-align: center; padding-top: 20px; }
+
+  /* ── LEGAL MODAL ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 500;
+    background: rgba(15,25,30,0.75);
+    backdrop-filter: blur(4px);
+    align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--white); border-radius: 16px;
+    max-width: 780px; width: 100%; max-height: 85vh;
+    display: flex; flex-direction: column;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+    overflow: hidden;
+  }
+  .modal-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 32px 20px;
+    border-bottom: 1px solid var(--blue-pale); flex-shrink: 0;
+  }
+  .modal-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); margin-bottom: 4px; }
+  .modal-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--blue-dark); }
+  .modal-close {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: var(--blue-pale); border: none; cursor: pointer;
+    font-size: 18px; color: var(--blue-dark);
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s; flex-shrink: 0;
+  }
+  .modal-close:hover { background: var(--blue-dark); color: white; }
+  .modal-body { padding: 24px 32px 32px; overflow-y: auto; flex: 1; line-height: 1.75; }
+  .modal-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 700; color: var(--blue-dark);
+    margin: 28px 0 8px; padding-bottom: 6px;
+    border-bottom: 1px solid var(--blue-pale);
+  }
+  .modal-body h2:first-child { margin-top: 0; }
+  .modal-body h3 { font-size: 15px; font-weight: 700; color: var(--green); margin: 20px 0 6px; }
+  .modal-body p { font-size: 14px; color: var(--blue-dark); margin-bottom: 12px; }
+  .modal-body ul { margin: 0 0 12px 20px; }
+  .modal-body ul li { font-size: 14px; color: var(--blue-dark); margin-bottom: 6px; }
+  .modal-body .disc-box {
+    background: var(--blue-pale); border-radius: 8px; padding: 16px 20px;
+    margin-bottom: 16px; font-size: 13px; color: var(--blue-dark); line-height: 1.65;
+  }
+  .modal-body .disc-box strong { color: var(--blue-dark); display: block; margin-bottom: 6px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.8px; }
+  .modal-body a { color: var(--green); }
+  .modal-footer {
+    padding: 16px 32px; border-top: 1px solid var(--blue-pale);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-shrink: 0; background: #f9fbfc;
+  }
+  .modal-footer-note { font-size: 12px; color: var(--blue-muted); }
+  .modal-footer-close {
+    background: var(--blue-dark); color: white;
+    border: none; border-radius: 6px; padding: 10px 24px;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; transition: background .2s;
+  }
+  .modal-footer-close:hover { background: var(--green); }
+
+
+  /* ── ANNUAL CALENDAR ── */
+  .annual-calendar { background: var(--white); padding: 100px 5%; }
+  .annual-calendar-inner { max-width: 1120px; margin: 0 auto; }
+  .calendar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  .calendar-item {
+    border: 1px solid var(--blue-pale); border-radius: 12px; padding: 28px 24px;
+    transition: box-shadow .2s, transform .2s;
+  }
+  .calendar-item:hover { box-shadow: 0 8px 28px rgba(47,62,70,0.08); transform: translateY(-3px); }
+  .calendar-icon { font-size: 24px; margin-bottom: 14px; display: block; }
+  .calendar-title { font-size: 16px; font-weight: 600; color: var(--blue-dark); margin-bottom: 8px; }
+  .calendar-body { font-size: 14px; color: var(--blue-muted); line-height: 1.65; font-weight: 300; }
+  @media (max-width: 900px) { .calendar-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .calendar-grid { grid-template-columns: 1fr; } }
+
+  /* ── WHO THIS IS FOR ── */
+  .fit-section { background: var(--blue-dark); padding: 88px 5%; position: relative; overflow: hidden; }
+  .fit-section::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 50% 70% at 15% 50%, rgba(62,142,99,0.10) 0%, transparent 60%); }
+  .fit-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; position: relative; z-index: 1; }
+  .fit-card { border-radius: 14px; padding: 32px; }
+  .fit-card.is-fit { background: rgba(62,142,99,0.1); border: 1px solid rgba(62,142,99,0.25); }
+  .fit-card.not-fit { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.09); }
+  .fit-card h4 { font-size: 17px; font-weight: 600; margin-bottom: 18px; }
+  .fit-card.is-fit h4 { color: var(--green-light); }
+  .fit-card.not-fit h4 { color: rgba(255,255,255,0.7); }
+  .fit-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .fit-list li { font-size: 14px; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start; font-weight: 300; }
+  .fit-card.is-fit .fit-list li { color: rgba(255,255,255,0.75); }
+  .fit-card.is-fit .fit-list li::before { content: '✓'; color: var(--green-light); font-weight: 700; flex-shrink: 0; }
+  .fit-card.not-fit .fit-list li { color: rgba(255,255,255,0.45); }
+  .fit-card.not-fit .fit-list li::before { content: '—'; color: rgba(255,255,255,0.25); font-weight: 700; flex-shrink: 0; }
+  @media (max-width: 900px) { .fit-inner { grid-template-columns: 1fr; } }
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner, .phi-grid, .advisor-grid, .tab-panel.active, .situation-grid, .owner-bridge-inner, .cta-clarity { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .cta-outer { border-radius: 16px; }
+    .cta-top, .cta-form-panel { padding: 40px 28px 32px; }
+    .cta-options { grid-template-columns: 1fr; gap: 12px; padding: 0 28px 32px; }
+    .cta-clarity { padding: 0 28px 32px; }
+    .clarity-card:first-child, .clarity-card:last-child { border-radius: 14px; border-left: 1px solid rgba(255,255,255,0.09); }
+    .cta-divider { display: none; }
+    .contact-form { grid-template-columns: 1fr; }
+    .form-submit-row { flex-direction: column; align-items: stretch; }
+    .btn-form-submit { text-align: center; }
+    .cta-note-bottom { padding: 0 28px 28px; }
+    .advisor-grid { gap: 48px; }
+    .nav-phone { display: none; }
+    .comp-table { font-size: 13px; }
+  }
+  @media (max-width: 600px) {
+    .steps { grid-template-columns: 1fr; }
+    .hero-trust { flex-wrap: wrap; gap: 20px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+
+<!-- ─────────────────────────────────────────────
+     TERMS OF SERVICE MODAL
+     Source: Approved jcsbwealth.com TOS
+     Domain updated to jcsbadvisors.com
+───────────────────────────────────────────── -->
+<div class="modal-overlay" id="modal-tos" role="dialog" aria-modal="true" aria-labelledby="tos-title">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-eyebrow">JCSB Wealth Management</div>
+        <div class="modal-title" id="tos-title">Terms of Service</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-tos')" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><strong>Effective Date:</strong> May 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> May 2026</p>
+      <h2>1. Acceptance of Terms</h2>
+      <p>These Terms of Service ("Terms") constitute a legally binding agreement between you and JCSB Wealth Management, LLC ("JCSB," "we," "us," or "our"). By accessing or using this website (jcsbwealth.com), you agree to be bound by these Terms. If you do not agree, please do not use this site. We reserve the right to update these Terms at any time; continued use after changes are posted constitutes acceptance.</p>
+
+      <h2>2. Description of This Site</h2>
+      <p>This site is a marketing and informational website operated by JCSB Wealth Management, LLC. It is designed to provide general information about our financial advisory services. Nothing on this site constitutes investment advice, legal advice, tax advice, or any other form of professional advice.</p>
+
+      <h2>3. Regulatory Disclosures</h2>
+      <div class="disc-box">
+        <strong>Required Disclosure</strong>
+        Brent Turner is registered with and offers securities through Kovack Securities, Inc. Member FINRA/SIPC. 6451 North Federal Hwy, Suite 1201, Ft. Lauderdale, FL 33308. (954) 782-4771. Advisory Services offered through Kovack Advisors, Inc., a SEC registered investment advisory firm. JCSB Wealth Management, LLC is not affiliated with Kovack Securities, Inc. or Kovack Advisors, Inc.
+      </div>
+      <p>Registered Representatives may only conduct business with residents of states and/or jurisdictions in which they are properly registered. Nothing on this site constitutes an offer to sell or solicitation to buy any security where such offer would be unlawful. A copy of our Client Relationship Summary (Form CRS) is available at: <a href="http://kovacksecurities.com/Form_CRS.pdf" target="_blank" rel="noopener">kovacksecurities.com/Form_CRS.pdf</a></p>
+
+      <h2>4. Not Investment, Legal, or Tax Advice</h2>
+      <p>Nothing on this site should be construed as investment advice, a recommendation to buy or sell any security, legal advice regarding ERISA or fiduciary duties, tax advice, or a guarantee of any specific investment outcome or tax credit eligibility. All information regarding SECURE Act 2.0 tax credits is provided for illustrative purposes only. Consult a qualified tax professional before making any decisions based on tax credit information presented here.</p>
+
+      <h2>5. No Fiduciary Relationship Created by Site Use</h2>
+      <p>Use of this site does not create a fiduciary, advisory, or client relationship between you and JCSB Wealth Management, LLC, Kovack Securities, Inc., or Kovack Advisors, Inc. A formal advisory or fiduciary relationship is only established through a separate written advisory agreement executed by both parties.</p>
+
+      <h2>5a. Contact Form Submissions — Regulatory Routing &amp; Retention</h2>
+      <p>When you submit a contact form on this site, your submission is routed to and stored in systems subject to the supervisory oversight of Kovack Securities, Inc. and Kovack Advisors, Inc. as required by FINRA, SEC, and applicable state securities regulations. This means:</p>
+      <ul>
+        <li>Your submission data — including your name, email address, phone number, and any message you provide — may be accessible to Kovack Securities, Inc. and/or Kovack Advisors, Inc. for supervisory and compliance review purposes.</li>
+        <li>Your data is subject to the data retention schedules required by FINRA Rule 4511 and SEC Rule 17a-4, which generally require broker-dealers to retain certain records for a minimum of three to six years, and in some cases longer.</li>
+        <li>Your data may be subject to the privacy policies and data handling practices of Kovack Securities, Inc. and Kovack Advisors, Inc., in addition to this policy. You may review Kovack Securities' Privacy Policy at: <a href="https://www.kovacksecurities.com/Privacy%20Policy.pdf" target="_blank" rel="noopener">kovacksecurities.com/Privacy Policy.pdf</a></li>
+      </ul>
+      <p>By submitting a contact form on this site, you acknowledge and consent to this regulatory routing and the associated retention requirements.</p>
+
+      <h2>6. Third-Party Links</h2>
+      <p>Links to third-party websites on this site are provided as a courtesy only. JCSB Wealth Management, LLC does not endorse or guarantee any third-party site or its content. Kovack Securities, Inc. does not guarantee, approve, nor endorse information or products available at linked sites, nor do links indicate any association with Kovack Securities, Inc. or Kovack Advisors, Inc.</p>
+
+      <h2>7. Intellectual Property</h2>
+      <p>All content on this site — including text, graphics, logos, and images — is the property of JCSB Wealth Management, LLC or its content suppliers and is protected by applicable copyright and trademark laws. You may not reproduce, distribute, or create derivative works without our prior written consent.</p>
+
+      <h2>8. Disclaimer of Warranties</h2>
+      <p>THIS SITE AND ALL CONTENT ARE PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SITE WILL BE UNINTERRUPTED, ERROR-FREE, OR FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS.</p>
+
+      <h2>9. Limitation of Liability</h2>
+      <p>TO THE FULLEST EXTENT PERMITTED BY LAW, JCSB WEALTH MANAGEMENT, LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF THIS SITE OR RELIANCE ON ANY INFORMATION CONTAINED HEREIN.</p>
+
+      <h2>10. Governing Law</h2>
+      <p>These Terms shall be governed by the laws of the State of Texas. Any legal action arising under these Terms shall be brought in the state or federal courts located in Lubbock County, Texas.</p>
+
+      <h2>11. Arbitration</h2>
+      <p>Any disputes arising under these Terms may be subject to arbitration as required by Kovack Securities, Inc. in accordance with FINRA rules and applicable regulations.</p>
+
+      <h2>12. Contact</h2>
+      <p>JCSB Wealth Management, LLC &nbsp;|&nbsp; Brent Turner, CFP® &nbsp;|&nbsp; (806) 677-9416 &nbsp;|&nbsp; brent@jcsbadvisors.com</p>
+    </div>
+    <div class="modal-footer">
+      <span class="modal-footer-note">JCSB Wealth Management, LLC</span>
+      <button class="modal-footer-close" onclick="closeModal('modal-tos')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────
+     PRIVACY POLICY MODAL
+     Source: Approved jcsbwealth.com PP
+     Domain updated to jcsbadvisors.com
+───────────────────────────────────────────── -->
+<div class="modal-overlay" id="modal-pp" role="dialog" aria-modal="true" aria-labelledby="pp-title">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-eyebrow">JCSB Wealth Management</div>
+        <div class="modal-title" id="pp-title">Privacy Policy</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-pp')" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><strong>Effective Date:</strong> May 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> May 2026</p>
+      <p>JCSB Wealth Management, LLC ("JCSB," "we," "us," or "our") is committed to protecting the privacy of visitors to this website. This Privacy Policy explains what information we collect, how we use it, with whom we share it, and your rights regarding that information.</p>
+
+      <h2>1. Who We Are</h2>
+      <p>JCSB Wealth Management, LLC is a financial advisory firm based in Texas. Brent Turner is a Registered Representative of Kovack Securities, Inc. (Member FINRA/SIPC) and offers Advisory Services through Kovack Advisors, Inc., a SEC registered investment advisory firm. JCSB Wealth Management, LLC is not affiliated with Kovack Securities, Inc. or Kovack Advisors, Inc.</p>
+
+      <h2>2. Information We Collect</h2>
+      <h3>2.1 Information You Provide</h3>
+      <p>When you fill out a contact form, schedule an appointment, or contact us directly, we may collect: your name, email address, phone number, company name, job title, and information about your retirement plan needs.</p>
+      <h3>2.2 Information Collected Automatically</h3>
+      <p>When you visit this site, our hosting provider and/or analytics tools may automatically collect: IP address, general geographic location, browser type, operating system, pages viewed, time on site, and referring URL.</p>
+      <h3>2.3 Cookies</h3>
+      <p>This site may use essential cookies required for site functionality, and analytics cookies if an analytics tool is enabled. Third-party cookies may be set by embedded scheduling tools (e.g., Calendly). You can control cookies through your browser settings.</p>
+
+      <h2>3. How We Use Your Information</h2>
+      <ul>
+        <li>To respond to your inquiries and communicate about our services</li>
+        <li>To schedule and manage consultations or appointments</li>
+        <li>To improve the content and functionality of this site</li>
+        <li>To comply with applicable legal and regulatory obligations</li>
+        <li>To protect the security and integrity of our site and business</li>
+      </ul>
+      <p>We do not use your information to send unsolicited marketing communications. You may opt out of any marketing communications at any time.</p>
+
+      <h2>4. How We Share Your Information</h2>
+      <h3>4.1 We Do Not Sell Your Information</h3>
+      <p>JCSB Wealth Management, LLC does not sell, rent, or trade your personal information to third parties for their marketing purposes.</p>
+      <h3>4.2 Service Providers</h3>
+      <p>We may share your information with trusted service providers who assist us in operating this site, including web hosting providers, scheduling services, email providers, and analytics tools. These providers are authorized to use your information only as necessary to provide services to us.</p>
+      <h3>4.3 Kovack Securities &amp; Kovack Advisors — Supervisory Access &amp; Regulatory Retention</h3>
+      <p>As a Registered Representative of Kovack Securities, Inc. and an Investment Advisor Representative of Kovack Advisors, Inc., Brent Turner operates under their supervisory oversight as required by FINRA, the SEC, and applicable state securities regulators. This has direct implications for how your contact form data is handled:</p>
+      <ul>
+        <li><strong>Supervisory access:</strong> Contact form submissions routed through this site's backend infrastructure are subject to review by Kovack Securities, Inc. and/or Kovack Advisors, Inc. for supervisory and compliance purposes. This is a regulatory requirement, not optional.</li>
+        <li><strong>Mandatory retention:</strong> Under FINRA Rule 4511 and SEC Rule 17a-4, broker-dealers are required to retain certain business records — which may include prospect contact records — for a minimum of three years, and in some cases up to six years or longer depending on record type. Your submission data may be retained for these periods regardless of whether a client relationship is established.</li>
+        <li><strong>Kovack's privacy practices:</strong> Data accessible to Kovack Securities, Inc. and Kovack Advisors, Inc. is also subject to their own privacy policies and data handling practices. JCSB Wealth Management, LLC does not control Kovack's data handling beyond what is required by our supervisory agreements. You may review Kovack Securities' Privacy Policy at: <a href="https://www.kovacksecurities.com/Privacy%20Policy.pdf" target="_blank" rel="noopener">kovacksecurities.com/Privacy Policy.pdf</a></li>
+      </ul>
+      <p>By submitting a contact form on this site, you acknowledge that your information will be handled in accordance with these regulatory requirements.</p>
+      <h3>4.4 Legal Requirements</h3>
+      <p>We may disclose your information where required by law, regulation, court order, or government authority, including FINRA and SEC examinations, state securities regulators, and law enforcement requests with proper legal process.</p>
+
+      <h2>5. Data Security</h2>
+      <p>We implement reasonable technical and organizational security measures designed to help protect your information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is completely secure. You provide information to us at your own risk.</p>
+
+      <h2>6. Your Privacy Rights</h2>
+      <h3>Texas Residents (TDPSA)</h3>
+      <p>Texas residents may have rights under the Texas Data Privacy and Security Act, including the right to know, access, correct, and delete personal data. To exercise your rights, contact us using the information below. We will respond to verified requests within 45 days.</p>
+      <h3>California Residents (CCPA)</h3>
+      <p>California residents may have rights under the California Consumer Privacy Act. We do not sell personal information.</p>
+
+      <h2>7. Children's Privacy</h2>
+      <p>This site is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe we may have done so, please contact us immediately.</p>
+
+      <h2>8. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last Updated" date above. Your continued use of the site after changes are posted constitutes acceptance of the updated policy.</p>
+
+      <h2>9. Contact — Privacy Inquiries</h2>
+      <p>JCSB Wealth Management, LLC &nbsp;|&nbsp; Brent Turner, CFP® &nbsp;|&nbsp; (806) 677-9416 &nbsp;|&nbsp; brent@jcsbadvisors.com</p>
+    </div>
+    <div class="modal-footer">
+      <span class="modal-footer-note">JCSB Wealth Management, LLC</span>
+      <button class="modal-footer-close" onclick="closeModal('modal-pp')">Close</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" aria-label="JCSB Wealth Management — Home">
+      <img src="https://jcsbwealth.com/JCSBWM_Logo_horizontal.svg" alt="JCSB Wealth Management">
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="#campaigns">Plan Situations</a>
+    <a href="#situations">What We Review</a>
+    <a href="#philosophy">Our Approach</a>
+    <a href="#annual">Annual Review</a>
+    <a href="#advisor">Our Advisor</a>
+  </div>
+  <div class="nav-actions">
+    <a href="tel:+18066779416" class="nav-phone">
+      <span class="nav-phone-icon">📞</span>(806) 677-9416
+    </a>
+    <a href="#contact" class="nav-cta">Start a Conversation</a>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">401(k) Guidance for Business Owners · CFP® · CPFA®</div>
+      <h1>A 401(k) Plan<br><em>Should Start With the Business Behind It.</em></h1>
+      <p class="hero-sub">Whether you are starting a plan or reviewing one you already have, the right conversation starts with your business: your workforce, your goals, your providers, and the responsibilities that come with sponsoring a plan.</p>
+      <div class="recognition-list hero-short-list">
+        <div class="recognition-item"><span class="recognition-arrow">→</span><span><strong>Employee benefits as part of your workforce strategy</strong></span></div>
+        <div class="recognition-item"><span class="recognition-arrow">→</span><span><strong>Plan sponsor responsibilities worth understanding</strong></span></div>
+        <div class="recognition-item"><span class="recognition-arrow">→</span><span><strong>Provider roles worth clarifying before decisions are made</strong></span></div>
+      </div>
+      <div class="hero-actions">
+        <a href="#campaigns" class="btn-primary" onclick="switchTab('takeover')">Review a Plan ↓</a>
+        <a href="#campaigns" class="btn-outline" onclick="switchTab('newplan')">Discuss a New Plan ↓</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-stat">
+          <div class="trust-num">CFP<span>®</span></div>
+          <div class="trust-label">CPFA® Credentialed</div>
+        </div>
+        <div class="trust-stat">
+          <div class="trust-num">3<span>(21)</span></div>
+          <div class="trust-label">Co-Fiduciary Support</div>
+        </div>
+        <div class="trust-stat">
+          <div class="trust-num">10<span>+</span></div>
+          <div class="trust-label">Years of Experience</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="card-label">Which conversation fits where you are?</div>
+      <div class="self-card-intro">Choose the starting point that sounds most relevant.</div>
+      <a href="#campaigns" class="self-option" onclick="switchTab('takeover')">
+        <span class="self-dot"></span>
+        <span><strong>Review our current plan.</strong><span>Think through what is currently reviewed, documented, and supported.</span></span>
+      </a>
+      <a href="#campaigns" class="self-option" onclick="switchTab('newplan')">
+        <span class="self-dot"></span>
+        <span><strong>Start a new plan.</strong><span>Consider benefit design, provider roles, tax credits, and ongoing responsibilities.</span></span>
+      </a>
+      <a href="#situations" class="self-option">
+        <span class="self-dot"></span>
+        <span><strong>Clarify who does what.</strong><span>Untangle the advisor, recordkeeper, TPA, and payroll roles.</span></span>
+      </a>
+      <a href="#contact" class="self-option">
+        <span class="self-dot"></span>
+        <span><strong>Talk it through first.</strong><span>No documents needed for the first conversation.</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- CAMPAIGNS -->
+<section class="campaigns" id="campaigns">
+  <div class="section-center reveal">
+    <div class="section-tag">Plan Situations</div>
+    <h2 class="section-title">Two Common Retirement Plan Conversations</h2>
+    <p class="section-sub">Some owners are reviewing a plan that already exists. Others are considering whether a new plan belongs in the company’s benefit strategy. Either way, the conversation starts with the business — not a product.</p>
+  </div>
+  <div class="tabs reveal">
+    <button class="tab-btn active" onclick="switchTab('takeover')">
+      <span class="tab-icon">🔄</span>Existing Plan Review
+    </button>
+    <button class="tab-btn" onclick="switchTab('newplan')">
+      <span class="tab-icon">🚀</span>New Plan Setup
+    </button>
+  </div>
+
+  <!-- TAKEOVER PANEL -->
+  <div class="tab-panel active" id="panel-takeover" style="max-width:1100px;margin:0 auto;">
+    <div class="panel-text reveal">
+      <h3>You Already Offer a Plan. Now You Want a Clearer Picture of the Process Behind It.</h3>
+      <div class="pain-point">
+        <div class="pain-label">Why This Matters</div>
+        A retirement plan is not a one-time setup. Plan sponsors are generally expected to maintain a prudent, documented process over time. In an environment where ERISA litigation and regulatory scrutiny remain important considerations, it can be useful to understand how the plan is reviewed, who is involved, and what documentation exists.
+      </div>
+      <p>A review does not assume something is wrong. It is a way to understand what is already in place, what is being handled, and which planning dimensions may deserve discussion.</p>
+      <ul class="feature-list">
+        <li><span class="check">✓</span><div><strong>Understand the review history</strong> — We can help review the plan’s investment process, costs, provider roles, and documentation history in plain English.</div></li>
+        <li><span class="check">✓</span><div><strong>Discuss plan sponsor responsibilities</strong> — We explain where plan sponsor duties generally show up and what a documented review process may include.</div></li>
+        <li><span class="check">✓</span><div><strong>Consider a repeatable review rhythm</strong> — The goal is not a one-time report; it is to discuss a process the business can evaluate and maintain over time.</div></li>
+        <li><span class="check">✓</span><div><strong>Review authority with advisory support</strong> — Under a written 3(21) agreement, Brent can support the investment advisory process while the plan sponsor retains final decision-making authority.</div></li>
+      </ul>
+      <a href="#contact" class="btn-primary" style="margin-top:8px;">Start an Existing Plan Conversation →</a>
+    </div>
+    <div class="panel-visual reveal">
+      <div class="visual-card">
+        <div class="visual-card-title">Existing Plan — Plain-English Review Areas</div>
+        <div class="metric-row"><span class="metric-name">Is someone reviewing the plan?</span><span class="metric-val good">Confirm Cadence</span></div>
+        <div class="metric-row"><span class="metric-name">Are plan costs being compared?</span><span class="metric-val good">Document Review</span></div>
+        <div class="metric-row"><span class="metric-name">Are investment decisions recorded?</span><span class="metric-val good">Clarify Process</span></div>
+        <div class="metric-row"><span class="metric-name">Do provider roles make sense?</span><span class="metric-val good">Map Responsibilities</span></div>
+        <div class="metric-row"><span class="metric-name">Can the owner explain the process?</span><span class="metric-val good">Make It Understandable</span></div>
+        <div class="metric-bar-wrap" style="margin-top:24px;">
+          <div class="metric-bar-label"><span>Initial Review Focus</span><span>Clarity + Documentation</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:82%;"></div></div>
+        </div>
+      </div>
+      <p style="font-size:11px;color:var(--blue-muted);margin-top:12px;line-height:1.5;">Illustrative example only. Individual plan situations vary. This does not constitute legal advice regarding your specific ERISA obligations.</p>
+    </div>
+  </div>
+
+  <!-- NEW PLAN PANEL -->
+  <div class="tab-panel" id="panel-newplan" style="max-width:1100px;margin:0 auto;">
+    <div class="panel-text reveal">
+      <h3>You Are Considering a Benefit That May Support Your Workforce Strategy.</h3>
+      <div class="opportunity-point">
+        <div class="opp-label">Business Opportunity</div>
+        A retirement plan may be part of how a growing company thinks about compensation, employee stability, and owner planning. For qualifying new plans, SECURE Act 2.0 tax credits may also offset a portion of early plan costs.
+      </div>
+      <p>The right plan depends on company size, cash flow, workforce needs, payroll coordination, provider selection, tax credit eligibility, and the owner’s goals. Our role is to help organize those considerations into a plan design and implementation discussion.</p>
+      <ul class="feature-list">
+        <li><span class="check">✓</span><div><strong>Evaluate the benefit around the business</strong> — Plan design, contribution structure, eligibility, and employee needs can be reviewed before launch.</div></li>
+        <li><span class="check">✓</span><div><strong>Clarify provider roles</strong> — We can help evaluate how the TPA, recordkeeper, payroll provider, and advisor may fit together.</div></li>
+        <li><span class="check">✓</span><div><strong>Review potential tax credits</strong> — We can walk through the SECURE 2.0 credit structure and coordinate with your tax professional on eligibility.</div></li>
+        <li><span class="check">✓</span><div><strong>Discuss ongoing responsibilities early</strong> — The governance process is worth discussing before the plan goes live, rather than only after questions arise.</div></li>
+      </ul>
+      <a href="#contact" class="btn-primary" style="margin-top:8px;">Discuss a New Plan Setup →</a>
+    </div>
+    <div class="panel-visual reveal">
+      <div class="credit-card">
+        <div class="credit-title">SECURE Act 2.0 — New Plan Credit Structure</div>
+        <div class="credit-amount"><sup>$</sup>5,000</div>
+        <div class="credit-sub">Maximum startup credit per year · eligibility determined by plan and employer specifics · consult a tax professional</div>
+        <div class="credit-rows">
+          <div class="credit-row"><span class="credit-row-label">Startup Credit (per year, max 3 yrs)</span><span class="credit-row-val">Up to $5,000</span></div>
+          <div class="credit-row"><span class="credit-row-label">Auto-Enrollment Credit</span><span class="credit-row-val">$500</span></div>
+          <div class="credit-row"><span class="credit-row-label">Maximum Credit Period</span><span class="credit-row-val">3 years</span></div>
+          <div class="credit-row"><span class="credit-row-label">Illustrative 3-Year Total</span><span class="credit-row-val" style="color:var(--green-light);">Up to $16,500</span></div>
+        </div>
+      </div>
+      <div class="visual-card" style="margin-top:16px;">
+        <div class="visual-card-title">What Gets Coordinated</div>
+        <div class="metric-row"><span class="metric-name">Employee benefit goal</span><span class="metric-val good">Workforce Strategy</span></div>
+        <div class="metric-row"><span class="metric-name">Company contribution approach</span><span class="metric-val good">Fit to Cash Flow</span></div>
+        <div class="metric-row"><span class="metric-name">TPA / recordkeeper roles</span><span class="metric-val good">Clarified</span></div>
+        <div class="metric-row"><span class="metric-name">Payroll connection</span><span class="metric-val good">Planned Before Launch</span></div>
+        <div class="metric-row"><span class="metric-name">Ongoing review process</span><span class="metric-val good">Built In</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ILLUSTRATIVE SITUATIONS -->
+<section class="situations" id="situations">
+  <div class="situations-inner">
+    <div class="section-center reveal">
+      <div class="section-tag">Planning Situations</div>
+      <h2 class="section-title">Three Situations Worth Discussing</h2>
+      <p class="section-sub">These examples describe planning conversations and possible work products. They are not promises of a specific result or statements about your current plan.</p>
+    </div>
+    <div class="situation-grid">
+      <div class="situation-card reveal">
+        <div class="situation-header">
+          <div class="situation-who">Existing Plan · Periodic Review</div>
+          <div class="situation-title">A plan that has been running for years where the owner wants a clearer view of the process behind it.</div>
+        </div>
+        <div class="situation-body">
+          <div class="concept-box"><div class="concept-label">The Planning Concept</div>A company retirement plan is maintained through process: periodic review, clear records, cost comparison, and a rationale for decisions. The technical terms are IPS review, fee benchmarking, fund lineup monitoring, and fiduciary documentation — but the business issue is simpler: the owner may want to understand what is being reviewed and why.</div>
+          <div class="work-text">In this type of engagement, we can review the plan’s current support structure, available documentation, provider roles, plan costs, and investment review process. The review may confirm that the plan is already well supported, or it may identify planning dimensions worth discussing further.</div>
+          <div class="output-box"><div class="output-label">Possible Work Product</div><div class="output-text">A plain-English review summary and a proposed review calendar for the business owner to evaluate.</div></div>
+          <div class="situation-disc">Illustrative example only. Individual plan situations vary. This is not legal or tax advice.</div>
+        </div>
+      </div>
+
+      <div class="situation-card reveal">
+        <div class="situation-header">
+          <div class="situation-who">New Plan · First 401(k)</div>
+          <div class="situation-title">A company considering whether a retirement plan fits its workforce and owner planning goals.</div>
+        </div>
+        <div class="situation-body">
+          <div class="concept-box"><div class="concept-label">The Planning Concept</div>A new retirement plan should be evaluated in the context of the business, employees, and owner. Design choices may affect workforce goals, employer contributions, payroll coordination, tax credit eligibility, and responsibilities after launch.</div>
+          <div class="work-text">In this type of engagement, we can compare design considerations, coordinate with the appropriate providers, review the SECURE Act 2.0 tax credit structure with your tax professional, and discuss the ongoing plan sponsor process before the plan goes live.</div>
+          <div class="output-box"><div class="output-label">Possible Work Product</div><div class="output-text">A new-plan discussion framework with provider roles, design considerations, owner decisions, and a proposed implementation timeline.</div></div>
+          <div class="situation-disc">Illustrative example only. Individual plan situations vary. This is not legal or tax advice.</div>
+        </div>
+      </div>
+
+      <div class="situation-card reveal">
+        <div class="situation-header">
+          <div class="situation-who">Bundled or Legacy Plan · Clarification</div>
+          <div class="situation-title">A plan created through payroll, a provider, or a prior relationship where the owner wants clarity.</div>
+        </div>
+        <div class="situation-body">
+          <div class="concept-box"><div class="concept-label">The Planning Concept</div>Some plans are created through bundled platforms or prior relationships. The question is not whether a provider exists; it is whether the owner understands who handles investments, administration, payroll coordination, employee support, and ongoing review.</div>
+          <div class="work-text">In this type of situation, we map the current provider structure, review available plan documents, identify who is responsible for each function, and clarify where advisory support fits.</div>
+          <div class="output-box"><div class="output-label">Possible Work Product</div><div class="output-text">A responsibility map and documentation checklist designed to help the plan sponsor evaluate how the plan is supported.</div></div>
+          <div class="situation-disc">Illustrative example only. Individual plan situations vary. This is not legal or tax advice.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHO THIS IS FOR -->
+<section class="fit-section" id="fit">
+  <div style="max-width:960px;margin:0 auto 40px;text-align:center;position:relative;z-index:1;" class="reveal">
+    <div class="section-tag" style="color:var(--green-light);">Who This Serves</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:700;color:white;line-height:1.15;margin-bottom:16px;">Is This the Right Fit?</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.5);font-weight:300;max-width:540px;margin:0 auto;">Fit is based on complexity and relationship intent, not a strict asset threshold.</p>
+  </div>
+  <div class="fit-inner">
+    <div class="fit-card is-fit reveal">
+      <h4>This is generally a fit for business owners who…</h4>
+      <ul class="fit-list">
+        <li>Sponsor or are considering a 401(k), SIMPLE, or comparable employer retirement plan</li>
+        <li>Value a documented review process, not a one-time product sale</li>
+        <li>Want to review and authorize plan decisions with qualified advisory support</li>
+        <li>Value a local, named advisor relationship — not a call center or a bundled platform</li>
+        <li>Want to discuss the plan in the broader context of business ownership and personal wealth</li>
+      </ul>
+    </div>
+    <div class="fit-card not-fit reveal">
+      <h4>This may not be the right fit if…</h4>
+      <ul class="fit-list">
+        <li>You are only looking for the lowest-cost bundled platform with minimal advisory involvement or documentation</li>
+        <li>You are looking for a one-time tax or legal opinion without ongoing plan governance</li>
+        <li>You prefer to delegate investment discretion without participating in periodic reviews</li>
+        <li>Your current need is primarily administrative, without investment advisory support</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="phi-inner">
+    <div class="phi-grid">
+      <div class="phi-left reveal">
+        <div class="section-tag">Our 3(21) Approach</div>
+        <h2>Advisory Support for<br><em>Plan Sponsor Decisions.</em></h2>
+        <p>A 3(21) advisory relationship is built for business owners who want qualified support while retaining final authority over the plan. Under a written agreement, JCSB supports the investment advisory process as a co-fiduciary while the plan sponsor remains the final decision-maker.</p>
+        <p>In practice, that can include research, monitoring, provider conversations, cost comparisons, and documentation support. The plan sponsor reviews the recommendations and makes decisions with a clearer process in front of them.</p>
+        <blockquote class="phi-quote">
+          "The owner does not need to start the conversation as an ERISA specialist. The advisor’s role is to help make the review process understandable, documented, and repeatable under the terms of the engagement."
+        </blockquote>
+      </div>
+      <div class="phi-right">
+        <div class="phi-pillar reveal">
+          <div class="pillar-num">Pillar 01</div>
+          <div class="pillar-title">A Benefit Reviewed in Business Context</div>
+          <div class="pillar-body">The plan can be evaluated in light of the company’s goals: workforce strategy, owner planning, administrative capacity, and ongoing review needs.</div>
+        </div>
+        <div class="phi-pillar reveal">
+          <div class="pillar-num">Pillar 02</div>
+          <div class="pillar-title">Plan Sponsor Decision Authority</div>
+          <div class="pillar-body">You remain the plan sponsor and final decision-maker. Brent provides research, context, and documentation support for informed review.</div>
+        </div>
+        <div class="phi-pillar reveal">
+          <div class="pillar-num">Pillar 03</div>
+          <div class="pillar-title">Scheduled Review Rhythm</div>
+          <div class="pillar-body">Plan oversight can be easier to evaluate when review is calendar-based and documented, rather than dependent on a crisis, complaint, or product renewal date.</div>
+        </div>
+        <div class="phi-pillar reveal">
+          <div class="pillar-num">Pillar 04</div>
+          <div class="pillar-title">Provider Coordination</div>
+          <div class="pillar-body">We can help clarify how the advisor, TPA, recordkeeper, payroll provider, and owner fit together so the plan sponsor can evaluate the service structure.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 3(21) vs 3(38) COMPARISON -->
+<section class="comparison" id="comparison">
+  <div class="comparison-inner">
+    <div class="section-center reveal">
+      <div class="section-tag">Structure Matters</div>
+      <h2 class="section-title">How Much Control Do You Want to Keep?</h2>
+      <p class="section-sub">Some advisory structures preserve business-owner review and approval authority. Others delegate more investment discretion. Understanding the difference is part of evaluating the plan governance model that fits your business.</p>
+    </div>
+    <table class="comp-table reveal">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th class="col-jcsb">3(21) — Our Approach</th>
+          <th class="col-other">3(38) — Discretionary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Plan Owner Control</td>
+          <td class="col-jcsb">Plan sponsor reviews and authorizes changes</td>
+          <td>Delegated — advisor has full investment discretion</td>
+        </tr>
+        <tr>
+          <td>Fiduciary Responsibility</td>
+          <td class="col-jcsb">Shared under the terms of a written advisory agreement</td>
+          <td>Shifted — but original fiduciary duties never fully disappear</td>
+        </tr>
+        <tr>
+          <td>Informed Review</td>
+          <td class="col-jcsb">Built into the process — owner reviews the recommendations</td>
+          <td>Limited — decisions may be made without your input</td>
+        </tr>
+        <tr>
+          <td>Plan Customization</td>
+          <td class="col-jcsb">You can request specific changes; we implement them</td>
+          <td>Changes go through advisor discretion</td>
+        </tr>
+        <tr>
+          <td>Provider Evaluation</td>
+          <td class="col-jcsb"><span class="comp-check">✓</span> Reviewed based on plan needs and role disclosures</td>
+          <td><span class="comp-dash">—</span> Varies by advisor</td>
+        </tr>
+        <tr>
+          <td>Documentation Provided</td>
+          <td class="col-jcsb"><span class="comp-check">✓</span> IPS, benchmarking reports, meeting records</td>
+          <td><span class="comp-dash">—</span> Varies by advisor</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px;color:var(--blue-muted);text-align:center;margin-top:16px;line-height:1.6;">This table is for general educational purposes and does not constitute legal advice. The specific obligations of a 3(21) or 3(38) fiduciary depend on the terms of the advisory agreement and applicable law. Consult a qualified ERISA attorney for guidance specific to your plan.</p>
+  </div>
+</section>
+
+
+<!-- ADVISOR BIO -->
+<section class="advisor" id="advisor" style="background:var(--blue-pale);">
+  <div class="advisor-inner">
+    <div class="advisor-grid">
+      <div class="advisor-photo-wrap reveal">
+        <div class="advisor-photo">
+          <img src="https://jcsbwealth.com/brent_turner.png" alt="Brent Turner, CFP®">
+        </div>
+        <div class="advisor-badge">Brent Turner, CFP®</div>
+      </div>
+      <div class="advisor-info reveal">
+        <div class="section-tag">Meet Your Advisor</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--blue-dark);">Brent Turner, CFP®</h2>
+        <div class="advisor-title-line">Certified Financial Planner™ · Certified Plan Fiduciary Advisor · Retirement Plan Specialist</div>
+        <p>Brent Turner, CFP® leads with planning, not product. In addition to the CFP® designation, Brent holds the Certified Plan Fiduciary Advisor (CPFA®) credential, which is focused on retirement plan fiduciary practices and plan sponsor support.</p>
+        <p>His role is to help evaluate TPAs, recordkeepers, investment lineups, and service arrangements in the context of your plan’s needs, provider roles, and applicable disclosures. When you work with JCSB, the conversation starts with the plan sponsor’s situation rather than a product presentation.</p>
+        <p>Brent works with small and mid-size business owners who value a plan-focused advisory relationship scaled to their situation, rather than a one-size-fits-all product conversation.</p>
+        <div class="credential-chips">
+          <span class="chip green">CFP® Certified</span>
+          <span class="chip green">CPFA® Credentialed</span>
+          <span class="chip">3(21) Co-Fiduciary</span>
+          <span class="chip">ERISA Plan Governance</span>
+          <span class="chip green">Plan-Focused Guidance</span>
+          <span class="chip">SECURE 2.0 Familiar</span>
+          <span class="chip">10+ Years Experience</span>
+        </div>
+        <div class="advisor-cta-group">
+          <a href="#contact" class="btn-orange">Request a Plan Review Conversation →</a>
+          <a href="tel:+18066779416" class="btn-outline" style="color:var(--blue-dark);border-color:var(--blue-pale);background:white;">📞 (806) 677-9416</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- OWNER BRIDGE: Company plan ↔ Personal wealth -->
+<section class="owner-bridge" id="bridge">
+  <div class="owner-bridge-inner">
+    <div class="reveal">
+      <div class="section-tag">The Bigger Picture</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:700;color:var(--blue-dark);line-height:1.15;margin-bottom:24px;">Your Company Plan Connects to <em style="color:var(--green);font-style:italic;">Your Personal Wealth.</em></h2>
+      <p style="font-size:17px;color:var(--blue-muted);line-height:1.7;font-weight:300;max-width:560px;">For many business owners, the retirement plan is both an employee benefit and a meaningful component of the owner's long-term wealth strategy. The decisions are not separate.</p>
+    </div>
+    <div class="reveal" style="display:flex;flex-direction:column;gap:16px;">
+      <div class="bridge-card">
+        <h4>Owner Contribution Strategy</h4>
+        <p>Contribution design, salary vs. distribution mix, and owner deferral amounts interact with personal tax planning. The plan sponsor's decisions affect the owner's personal financial position — not just the employee benefit.</p>
+      </div>
+      <div class="bridge-card">
+        <h4>Tax Planning Coordination</h4>
+        <p>Plan design affects the owner's personal tax situation — including potential deductions, contribution timing, and the interaction between company cash flow and personal income planning.</p>
+      </div>
+      <div class="bridge-card">
+        <h4>Exit and Succession Context</h4>
+        <p>For business owners planning an eventual sale or transition, the retirement plan structure may affect workforce planning, buyer discussions, and the owner's personal distribution strategy.</p>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--blue-muted);text-align:center;max-width:700px;margin:32px auto 0;line-height:1.6;">This is not tax or legal advice. The planning concepts above describe dimensions that may be worth coordinating with a financial advisor, CPA, and legal counsel. Consult qualified professionals for your specific situation.</p>
+</section>
+
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="process-inner">
+    <div class="section-center reveal">
+      <div class="section-tag">How It Works</div>
+      <h2 class="section-title">From First Conversation to a Manageable Process</h2>
+      <p class="section-sub">A straightforward path built around understanding the business first, then deciding what kind of plan support makes sense.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <span class="step-icon">📋</span>
+        <h4>Business Conversation</h4>
+        <p>A 30-minute conversation about your company, employees, current plan situation, and questions. No plan documents are required for the first call.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <span class="step-icon">🔍</span>
+        <h4>Existing Plan or New Plan Path</h4>
+        <p>For an existing plan, we discuss what is already in place. For a new plan, we can walk through benefit goals, provider coordination, potential tax credits, and ongoing responsibilities.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <span class="step-icon">🏗️</span>
+        <h4>Clear Next Step</h4>
+        <p>After reviewing the relevant information, Brent can outline a practical next step, such as a plan review, provider coordination, or new-plan implementation support.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <span class="step-icon">🛡️</span>
+        <h4>Ongoing Support Rhythm</h4>
+        <p>If engaged, the relationship is built around scheduled reviews, plain-English explanations, provider coordination, and documentation the plan sponsor can keep on file.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ANNUAL FIDUCIARY CALENDAR -->
+<section class="annual-calendar" id="annual">
+  <div class="annual-calendar-inner">
+    <div class="section-center reveal">
+      <div class="section-tag">Planning Dimensions We Help Organize</div>
+      <h2 class="section-title">The Technical Work, Explained in Business Terms</h2>
+      <p class="section-sub">Once the business owner understands why the plan matters, the ongoing work becomes easier to discuss: review the benefit, document the process, and coordinate the moving parts. These are planning dimensions that may be covered on a scheduled basis, depending on the engagement.</p>
+    </div>
+    <div class="calendar-grid">
+      <div class="calendar-item reveal">
+        <span class="calendar-icon">📄</span>
+        <div class="calendar-title">Investment Policy Statement Review</div>
+        <div class="calendar-body">Periodic review to evaluate whether the IPS still reflects the plan's structure, participant profile, and investment objectives. Documentation may include the rationale for any changes.</div>
+      </div>
+      <div class="calendar-item reveal">
+        <span class="calendar-icon">📊</span>
+        <div class="calendar-title">Fee Benchmarking</div>
+        <div class="calendar-body">Plan costs can be compared against relevant market data on a scheduled basis. The comparison and rationale may be documented for the plan's file.</div>
+      </div>
+      <div class="calendar-item reveal">
+        <span class="calendar-icon">🔍</span>
+        <div class="calendar-title">Investment Lineup Review</div>
+        <div class="calendar-body">Fund options may be reviewed against IPS criteria. Any recommendations to retain, replace, or add options should be supported by documented rationale.</div>
+      </div>
+      <div class="calendar-item reveal">
+        <span class="calendar-icon">👥</span>
+        <div class="calendar-title">Participant Education Support</div>
+        <div class="calendar-body">Coordination of participant-facing communication may help the plan sponsor explain plan mechanics more clearly.</div>
+      </div>
+      <div class="calendar-item reveal">
+        <span class="calendar-icon">🔗</span>
+        <div class="calendar-title">Provider Coordination</div>
+        <div class="calendar-body">Liaison with TPA, recordkeeper, and payroll on service questions, plan amendments, and administrative items, depending on the scope of the engagement.</div>
+      </div>
+      <div class="calendar-item reveal">
+        <span class="calendar-icon">🗂️</span>
+        <div class="calendar-title">Fiduciary Meeting Documentation</div>
+        <div class="calendar-body">Review sessions may be documented so the plan sponsor has a record of decisions discussed, rationale provided, and advisors consulted over time.</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--blue-muted);text-align:center;margin-top:24px;line-height:1.6;">The scope and frequency of advisory services depend on the terms of the written advisory agreement. The above is illustrative of the types of activities that may be included.</p>
+  </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="contact">
+  <div class="cta-outer reveal">
+
+    <div class="cta-top">
+      <div class="section-tag">Get Started</div>
+      <h2>Start With a <em>Plain-English Plan Conversation.</em></h2>
+      <p>The first step is designed to clarify your business situation, not force a decision. Bring your questions about an existing plan, a possible new plan, workforce considerations, provider coordination, or the responsibilities that come with sponsorship.</p>
+    </div>
+
+    <div class="cta-clarity">
+      <div class="clarity-card">
+        <h4>What the first conversation is</h4>
+        <ul>
+          <li>A plain-English discussion of your business, employees, and plan situation.</li>
+          <li>A chance to discuss how an existing plan is reviewed and supported.</li>
+          <li>A way to discuss what an ongoing support process could look like.</li>
+        </ul>
+      </div>
+      <div class="clarity-card not">
+        <h4>What it is not</h4>
+        <ul>
+          <li>Not a product presentation or commitment to move your plan.</li>
+          <li>Not a requirement to bring plan documents to the first call.</li>
+          <li>Not an assumption that your current plan is broken.</li>
+          <li>Not legal or tax advice, and not a recommendation before review.</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="cta-options">
+
+      <div class="cta-option">
+        <div class="cta-option-badge badge-primary">Most Popular</div>
+        <span class="cta-option-icon">📅</span>
+        <h4>Book a Complimentary Conversation</h4>
+        <p>Pick a time on Brent's calendar. No plan documents needed for the first conversation.</p>
+        <div class="booking-actions">
+          <a href="https://app.usemotion.com/meet/jcsbwm_brentcfp/inofficemeeting" target="_blank" rel="noopener" class="btn-book inperson">🏢 In Person →</a>
+          <a href="https://app.usemotion.com/meet/jcsbwm_brentcfp/zoommeeting" target="_blank" rel="noopener" class="btn-book zoom">💻 By Zoom →</a>
+        </div>
+      </div>
+
+      <div class="cta-divider"></div>
+
+      <div class="cta-option">
+        <div class="cta-option-badge badge-urgent">Talk Now</div>
+        <span class="cta-option-icon">📞</span>
+        <h4>Call Directly</h4>
+        <p>Prefer a direct conversation? Call during business hours.</p>
+        <a href="tel:+18066779416" class="btn-phone">(806) 677-9416</a>
+        <div class="btn-phone-sub">Tap to call on mobile</div>
+      </div>
+
+      <div class="cta-divider"></div>
+
+      <div class="cta-option">
+        <div class="cta-option-badge badge-easy">Lower Friction</div>
+        <span class="cta-option-icon">✉️</span>
+        <h4>Send a Message</h4>
+        <p>Prefer to start in writing? Use the form below and Brent can follow up.</p>
+        <a href="#contact-form" class="btn-green-outline" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'}); return false;">
+          Send a Message ↓
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Contact form -->
+    <div class="cta-form-panel" id="contact-form">
+      <h3>Send Us a Message</h3>
+      <p class="form-sub">Fill out the form and Brent will follow up.</p>
+      <div id="form-success" class="form-success">
+        <span class="form-success-icon">✅</span>
+        <strong style="color:white;display:block;font-size:18px;margin-bottom:8px;">Message received.</strong>
+        Brent will be in touch as appropriate.
+      </div>
+      <div class="contact-form" id="contact-form-fields">
+        <div class="form-group">
+          <label for="cf-name">Your Name</label>
+          <input type="text" id="cf-name" placeholder="Jane Smith" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="cf-company">Company Name</label>
+          <input type="text" id="cf-company" placeholder="Acme, Inc.">
+        </div>
+        <div class="form-group">
+          <label for="cf-email">Email Address</label>
+          <input type="email" id="cf-email" placeholder="jane@acme.com" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="cf-phone">Phone Number</label>
+          <input type="tel" id="cf-phone" placeholder="(555) 555-5555" autocomplete="tel">
+        </div>
+        <div class="form-group full">
+          <label for="cf-situation">Which best describes you?</label>
+          <select id="cf-situation">
+            <option value="" disabled selected>Select one…</option>
+            <option value="takeover">We have an existing plan — interested in a review</option>
+            <option value="new">We are considering a new retirement plan</option>
+            <option value="unsure">Not sure yet — just exploring my options</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="cf-message">Message <span style="font-weight:300;font-size:12px;color:rgba(255,255,255,0.3)">(optional)</span></label>
+          <textarea id="cf-message" placeholder="Anything you'd like Brent to know before reaching out…"></textarea>
+        </div>
+        <div class="form-submit-row">
+          <span class="form-privacy">🔒 Your information is not sold to third parties.</span>
+          <button class="btn-form-submit" onclick="handleFormSubmit()">Send Message →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-note-bottom">A plan conversation, not a product-first pitch. — Brent Turner, CFP®</div>
+
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <img src="https://jcsbwealth.com/JCSBWM_Logo_horizontal.svg" alt="JCSB Wealth Management" style="height:42px;width:auto;display:block;">
+    </div>
+    <div class="footer-copy">© 2026 JCSB Wealth Management. All rights reserved.</div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="footer-legal-links">
+      <a href="#" onclick="openModal('modal-tos'); return false;">Terms of Service</a>
+      <a href="#" onclick="openModal('modal-pp'); return false;">Privacy Policy</a>
+      <a href="http://kovacksecurities.com/Form_CRS.pdf" target="_blank" rel="noopener">Form CRS</a>
+      <a href="https://brokercheck.finra.org/" target="_blank" rel="noopener">FINRA BrokerCheck</a>
+      <a href="https://www.sipc.org" target="_blank" rel="noopener">SIPC</a>
+    </div>
+    <div class="footer-disc">
+      JCSB Wealth Management provides financial planning and investment advisory services designed to help individuals evaluate their current financial position, clarify their goals, and make informed decisions. Services may include retirement planning, investment review, and ongoing monitoring, depending on client needs. Planning strategies and investment recommendations are based on individual circumstances, objectives, and risk tolerance. No investment strategy can guarantee results or prevent loss. Any charts, progress indicators, or example figures shown on this site are for illustrative purposes only and do not represent actual client results, guarantees, or projections of future performance. All examples, illustrations, and planning concepts are provided for educational and informational purposes only. This information should not be used as a basis for legal or tax advice. In any specific case, the parties involved should seek the guidance and advice of their own legal and tax counsel. Estate planning is done in conjunction with your estate planning attorney, tax attorney and/or CPA.
+    </div>
+    <div class="footer-disc">
+      Brent Turner is registered with and offers securities through Kovack Securities, Inc. Member <a href="https://www.finra.org" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">FINRA</a>/<a href="https://www.sipc.org" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">SIPC</a>. 6451 North Federal Hwy, Suite 1201, Ft. Lauderdale, FL 33308. (954) 782-4771. Advisory Services offered through Kovack Advisors, Inc., a SEC registered investment advisory firm. JCSB Wealth Management, LLC is not affiliated with Kovack Securities, Inc. or Kovack Advisors, Inc. Registered Representative may only conduct business with residents of the states and/or jurisdictions for which they are properly registered. Linked sites are strictly provided as a courtesy. Kovack Securities, Inc. does not guarantee, approve nor endorse the information or products available at the sites, nor do links indicate any association with or endorsement of the linked sites by Kovack Securities, Inc. nor Kovack Advisors, Inc.
+    </div>
+    <div class="footer-disc">
+      Certified Financial Planner Board of Standards, Inc. owns the certification marks CFP®, CERTIFIED FINANCIAL PLANNER™, and CFP® in the United States.
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // ─── Modal controls ───────────────────────────────────────────────
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === this) closeModal(this.id);
+    });
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
+    }
+  });
+
+  // ─── API Configuration ────────────────────────────────────────────
+  //  Shared backend — same Railway deployment as jcsbwealth.com
+  //  Update ALLOWED_ORIGIN in Railway to include jcsbadvisors.com
+  const API_BASE = 'https://jcsb-form-backend-production.up.railway.app';
+
+  // ─── Contact Form Submit ──────────────────────────────────────────
+  async function handleFormSubmit() {
+    const name      = document.getElementById('cf-name').value.trim();
+    const email     = document.getElementById('cf-email').value.trim();
+    const company   = document.getElementById('cf-company').value.trim();
+    const phone     = document.getElementById('cf-phone').value.trim();
+    const situation = document.getElementById('cf-situation').value;
+    const message   = document.getElementById('cf-message').value.trim();
+
+    if (!name || !email || !situation) {
+      showFormError('Please fill in your name, email, and select your situation.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showFormError('Please enter a valid email address.');
+      return;
+    }
+
+    const btn = document.querySelector('.btn-form-submit');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+    clearFormError();
+
+    try {
+      const response = await fetch(`${API_BASE}/api/contact`, {
+        method : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body   : JSON.stringify({ name, email, company, phone, situation, message }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        document.getElementById('contact-form-fields').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        showFormError(data.error || 'Something went wrong. Please try again.');
+        btn.textContent = originalText;
+        btn.disabled = false;
+        btn.style.opacity = '';
+      }
+
+    } catch (err) {
+      showFormError('Unable to send — please call us directly at (806) 677-9416.');
+      btn.textContent = originalText;
+      btn.disabled = false;
+      btn.style.opacity = '';
+    }
+  }
+
+  // ─── Subscribe (email capture) ────────────────────────────────────
+  async function handleSubscribe(email, name = '') {
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return { success: false, error: 'Please enter a valid email address.' };
+    }
+    try {
+      const response = await fetch(`${API_BASE}/api/subscribe`, {
+        method : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body   : JSON.stringify({ email, name }),
+      });
+      return await response.json();
+    } catch (err) {
+      return { success: false, error: 'Unable to subscribe. Please try again later.' };
+    }
+  }
+
+  // ─── Form error helpers ───────────────────────────────────────────
+  function showFormError(msg) {
+    let el = document.getElementById('form-error-msg');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'form-error-msg';
+      el.style.cssText = 'color:#F38D0C;font-size:13px;font-weight:600;margin-bottom:12px;padding:10px 14px;background:rgba(243,141,12,0.1);border-radius:6px;border-left:3px solid #F38D0C;grid-column:1/-1;';
+      const submitRow = document.querySelector('.form-submit-row');
+      if (submitRow) submitRow.parentNode.insertBefore(el, submitRow);
+    }
+    el.textContent = '⚠ ' + msg;
+    el.style.display = 'block';
+  }
+  function clearFormError() {
+    const el = document.getElementById('form-error-msg');
+    if (el) el.style.display = 'none';
+  }
+
+  // ─── Tab switching ────────────────────────────────────────────────
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach((b, i) => {
+      b.classList.toggle('active', (tab === 'takeover' && i === 0) || (tab === 'newplan' && i === 1));
+    });
+    document.getElementById('panel-takeover').classList.toggle('active', tab === 'takeover');
+    document.getElementById('panel-newplan').classList.toggle('active', tab === 'newplan');
+  }
+
+  // ─── Scroll reveal ────────────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ─── Stagger step/pillar reveals ─────────────────────────────────
+  document.querySelectorAll('.steps .step, .phi-right .phi-pillar').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
+  });
+</script>
+
+
+</body>
+</html>
